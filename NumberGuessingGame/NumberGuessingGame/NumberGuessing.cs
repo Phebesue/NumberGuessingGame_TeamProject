@@ -38,45 +38,57 @@ namespace NumberGuessingGame
                     {
                         if (numberGuess > number)
                         {
+                            Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("Too High");
                             availableGuesses--;
                             if (numberGuess >= number + 8)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkBlue;
                                 Console.WriteLine("Way too high..");
                             }
                             else if (numberGuess <= number + 5 && numberGuess > number + 2)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkBlue;
                                 Console.WriteLine("Getting close..");
                             }
                             else if (numberGuess < number + 2)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                 Console.WriteLine("You're so close!");
                             }
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("Available guesses left: " + availableGuesses);
                         }
                         else if (numberGuess < number)
                         {
+                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Too Low");
                             availableGuesses--;
                             if (numberGuess <= number - 8)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Way too low..");
 
                             }
                             else if (numberGuess >= number - 5 && numberGuess < number - 2)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("Getting close..");
                             }
-                            else if(numberGuess> number - 2)
+                            else if (numberGuess > number - 2)
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                 Console.WriteLine("You're so close!");
                             }
+                            Console.ForegroundColor = ConsoleColor.White; 
                             Console.WriteLine("Available guesses left: " + availableGuesses);
 
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("\nYou guessed correctly!!");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("\nThank you for playing!");
                             playerGamesWon++;
                             DoOver();
@@ -86,8 +98,10 @@ namespace NumberGuessingGame
 
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("You're REALLY bad at this.");
                         availableGuesses--;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("Available guesses left: " + availableGuesses);
                     }
                 }
@@ -96,7 +110,10 @@ namespace NumberGuessingGame
 
                 else
                 {
-                    Console.WriteLine("\nYou are out of guesses! \nGAME OVER!!");
+                    Console.WriteLine("\nYou are out of guesses! ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("GAME OVER!!");
+                    Console.ForegroundColor = ConsoleColor.White;
                     computerGamesWon++;
                     DoOver();
                     IsEqual = true;
